@@ -24,12 +24,6 @@ public class PlayerController : MonoBehaviour {
 		ballController = ball.GetComponent<BallController>();
 
 		hitPower = 0;
-		Debug.Log(angle);
-//		if (ball != null){
-//			Debug.Log ("Found the Ball");
-//			Debug.Log (ball.name);
-//		}
-
 	}
 	
 	// Update is called once per frame
@@ -45,27 +39,21 @@ public class PlayerController : MonoBehaviour {
 			Debug.Log(hitPower);
 		}
 
-
+		if(ballController.CanHit())
+		{
+			Transform club = gameObject.transform.GetChild(0);
+			club.GetComponent<MeshRenderer>().material.color = new Color(0f, 0f, 0f, 0.5f);
+		}
 
 		if(Input.GetKey(KeyCode.A)) {
 			angle += angleDel;
-			if(angle > 359.9f) {
-				angle = 0;
-			}
-			Debug.Log(angle);
 			gameObject.transform.RotateAround(ball.transform.position, Vector3.up, angleDel);
 		}
 		if(Input.GetKey(KeyCode.D)) {
 			angle -= angleDel;
-			if(angle < 0) {
-				angle = 359.9f;
-			}
-			Debug.Log(angle);
 			gameObject.transform.RotateAround(ball.transform.position, Vector3.up, -angleDel);
 		}
-
-
-
+			
 		//	Call Hit from Ball Controller
 		if(Input.GetKeyUp(KeyCode.W)) {
 			Vector3 direction = getDirection();
