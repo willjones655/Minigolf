@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
 	//	Hit
 	private int hitPower;
 	public static int maxPower = 2000;
-	private float angle;
+	private float angle = 0f;
 	private float angleDel = 5f;
 
 
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour {
 		ballController = ball.GetComponent<BallController>();
 
 		hitPower = 0;
-
+		Debug.Log(angle);
 //		if (ball != null){
 //			Debug.Log ("Found the Ball");
 //			Debug.Log (ball.name);
@@ -45,29 +45,40 @@ public class PlayerController : MonoBehaviour {
 			Debug.Log(hitPower);
 		}
 
-		//	Display ring when CanHit
-		if(ballController.CanHit()) {
-			
-		}
+
 
 		if(Input.GetKey(KeyCode.A)) {
-//			angle += angleDel;
+			angle += angleDel;
+			if(angle > 359.9f) {
+				angle = 0;
+			}
+			Debug.Log(angle);
 			gameObject.transform.RotateAround(ball.transform.position, Vector3.up, angleDel);
-
 		}
 		if(Input.GetKey(KeyCode.D)) {
-//			angle -= angleDel;
+			angle -= angleDel;
+			if(angle < 0) {
+				angle = 359.9f;
+			}
+			Debug.Log(angle);
 			gameObject.transform.RotateAround(ball.transform.position, Vector3.up, -angleDel);
-
 		}
+
 
 
 		//	Call Hit from Ball Controller
 		if(Input.GetKeyUp(KeyCode.W)) {
-			Vector3 direction = new Vector3(0,0,1);
+			Vector3 direction = getDirection();
+			Debug.Log(direction);
+			Debug.DrawRay(transform.position, ball.transform.position, Color.red);
 
 			ballController.Hit(direction, hitPower);
 			hitPower = 0;
 		}
 	}
+
+	private Vector3 getDirection(){
+		return gameObject.transform.forward;
+	}
+
 }
