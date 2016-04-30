@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
 	private Rigidbody ballRb;
 	private BallController ballController;
 	private Transform club;
+	public PowerBar powerBar;
 
 	//	Hit
 	private int hitPower;
@@ -29,11 +30,11 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 		//	Power from keyboard input
 		if (Input.GetKey(KeyCode.W)){
 			hitPower += 10;
-
+			powerBar.SetAmount(hitPower,maxPower);
 			if(hitPower > maxPower) {
 				hitPower = maxPower;
 			}
@@ -64,6 +65,7 @@ public class PlayerController : MonoBehaviour {
 			Vector3 direction = getPlayerDirection();
 			ballController.Hit(direction, hitPower);
 			hitPower = 0;
+
 		}
 	}
 
