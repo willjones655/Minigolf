@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
 	//	Console
 	private Rigidbody ballRb;
 	private BallController ballController;
+	private Transform club;
 
 	//	Hit
 	private int hitPower;
@@ -22,7 +23,8 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		ballController = ball.GetComponent<BallController>();
-
+		//	Get Club
+		club = gameObject.transform.GetChild(0);
 		hitPower = 0;
 	}
 	
@@ -35,14 +37,17 @@ public class PlayerController : MonoBehaviour {
 			if(hitPower > maxPower) {
 				hitPower = maxPower;
 			}
-
 			Debug.Log(hitPower);
 		}
 
-		if(ballController.CanHit())
-		{
-			Transform club = gameObject.transform.GetChild(0);
-			club.GetComponent<MeshRenderer>().material.color = new Color(0f, 0f, 0f, 0.5f);
+		//	If the ball is moving
+		if(!ballController.CanHit()){
+			changeColor(0f);
+		}
+
+		//	If the ball is stationary
+		if(ballController.CanHit()){
+			changeColor(1f);
 		}
 
 		if(Input.GetKey(KeyCode.A)) {
@@ -56,17 +61,30 @@ public class PlayerController : MonoBehaviour {
 			
 		//	Call Hit from Ball Controller
 		if(Input.GetKeyUp(KeyCode.W)) {
-			Vector3 direction = getDirection();
-			Debug.Log(direction);
-			Debug.DrawRay(transform.position, ball.transform.position, Color.red);
-
+			Vector3 direction = getPlayerDirection();
 			ballController.Hit(direction, hitPower);
 			hitPower = 0;
 		}
 	}
 
-	private Vector3 getDirection(){
+	private Vector3 getPlayerDirection(){
 		return gameObject.transform.forward;
+	}
+
+	private void changeColor(float newColorValue){
+		// Save current club color
+		Material[] mats = club.GetComponent<Renderer>().materials;
+		//	Value between current .a and newColor Value
+
+		foreach(Material mat in mats){
+//			Color newColor = mat.color;
+//			newColor.a = newColorValue;
+//			mat.SetColor("_Color", newColor);
+
+			Color newColor = mat.color;
+			newColor.a = newColorValue;
+			mat.SetColor("_Color", newColor);
+		}
 	}
 
 }

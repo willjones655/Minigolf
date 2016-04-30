@@ -12,7 +12,7 @@ public class BallController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
 	public void Hit(Vector3 direction, float power) {
