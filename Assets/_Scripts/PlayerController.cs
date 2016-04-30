@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
 	public float speed;
 	public float turnSpeed;
 	public GameObject ball;
+	private GameController gc;
 
 	//	Console
 	private Rigidbody ballRb;
@@ -27,45 +28,50 @@ public class PlayerController : MonoBehaviour {
 		//	Get Club
 		club = gameObject.transform.GetChild(0);
 		hitPower = 0;
+		gc = GameObject.FindWithTag("GameController").GetComponent<GameController>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		//	Power from keyboard input
-		if (Input.GetKey(KeyCode.W)){
-			hitPower += 10;
-			powerBar.SetAmount(hitPower,maxPower);
-			if(hitPower > maxPower) {
-				hitPower = maxPower;
+		if (!gc.youWin)
+		{
+
+			if (Input.GetKey(KeyCode.W)){
+				hitPower += 10;
+				powerBar.SetAmount(hitPower,maxPower);
+				if(hitPower > maxPower) {
+					hitPower = maxPower;
+				}
+				Debug.Log(hitPower);
 			}
-			Debug.Log(hitPower);
-		}
 
-		//	If the ball is moving
-		if(!ballController.CanHit()){
-			changeColor(0f);
-		}
+			//	If the ball is moving
+			if(!ballController.CanHit()){
+				changeColor(0f);
+			}
 
-		//	If the ball is stationary
-		if(ballController.CanHit()){
-			changeColor(1f);
-		}
+			//	If the ball is stationary
+			if(ballController.CanHit()){
+				changeColor(1f);
+			}
 
-		if(Input.GetKey(KeyCode.A)) {
-			angle += angleDel;
-			gameObject.transform.RotateAround(ball.transform.position, Vector3.up, angleDel);
-		}
-		if(Input.GetKey(KeyCode.D)) {
-			angle -= angleDel;
-			gameObject.transform.RotateAround(ball.transform.position, Vector3.up, -angleDel);
-		}
-			
-		//	Call Hit from Ball Controller
-		if(Input.GetKeyUp(KeyCode.W)) {
-			Vector3 direction = getPlayerDirection();
-			ballController.Hit(direction, hitPower);
-			hitPower = 0;
+			if(Input.GetKey(KeyCode.A)) {
+				angle += angleDel;
+				gameObject.transform.RotateAround(ball.transform.position, Vector3.up, angleDel);
+			}
+			if(Input.GetKey(KeyCode.D)) {
+				angle -= angleDel;
+				gameObject.transform.RotateAround(ball.transform.position, Vector3.up, -angleDel);
+			}
+				
+			//	Call Hit from Ball Controller
+			if(Input.GetKeyUp(KeyCode.W)) {
+				Vector3 direction = getPlayerDirection();
+				ballController.Hit(direction, hitPower);
+				hitPower = 0;
 
+			}
 		}
 	}
 
