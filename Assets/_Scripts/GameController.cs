@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
 
-	//	System
+	//	Win Text
 	public GameObject canvas;
 	public Text winTextMesh;
 	public bool youWin;
@@ -12,6 +12,8 @@ public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		BuildCourse build = gameObject.GetComponent<BuildCourse>();
+		build.MakeCourse();
 		canvas.SetActive(true);
 		winTextMesh.text = "";
 	}
@@ -22,4 +24,6 @@ public class GameController : MonoBehaviour {
 			winTextMesh.text = winText;
 		}
 	}
+
+
 }

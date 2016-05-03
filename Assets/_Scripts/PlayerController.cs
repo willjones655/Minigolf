@@ -56,11 +56,11 @@ public class PlayerController : MonoBehaviour {
 				changeColor(1f);
 			}
 
-			if(Input.GetKey(KeyCode.A)) {
+			if(Input.GetKey(KeyCode.D)) {
 				angle += angleDel;
 				gameObject.transform.RotateAround(ball.transform.position, Vector3.up, angleDel);
 			}
-			if(Input.GetKey(KeyCode.D)) {
+			if(Input.GetKey(KeyCode.A)) {
 				angle -= angleDel;
 				gameObject.transform.RotateAround(ball.transform.position, Vector3.up, -angleDel);
 			}
