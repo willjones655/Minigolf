@@ -10,9 +10,11 @@ public class GameController : MonoBehaviour {
 	public bool youWin;
 	public string winText;
 
+	BuildCourse build;
+
 	// Use this for initialization
 	void Start () {
-		BuildCourse build = gameObject.GetComponent<BuildCourse>();
+		build = gameObject.GetComponent<BuildCourse>();
 		build.MakeCourse();
 		canvas.SetActive(true);
 		winTextMesh.text = "";
@@ -22,6 +24,11 @@ public class GameController : MonoBehaviour {
 	void Update () {
 		if (youWin){
 			winTextMesh.text = winText;
+		}
+
+		if (Input.GetMouseButtonDown(0)){
+			build.DestroyCourse();
+			build.MakeCourse();
 		}
 	}
 
