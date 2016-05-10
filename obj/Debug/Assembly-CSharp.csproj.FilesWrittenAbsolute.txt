@@ -11,3 +11,7 @@
 /Users/willjones655/Documents/Portfolio/Unity/Experimental/JoshAndWill/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/willjones655/Documents/Portfolio/Unity/Experimental/JoshAndWill/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/willjones655/Documents/Portfolio/Unity/Experimental/JoshAndWill/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/willjones655/Documents/Portfolio/Unity/Experimental/JoshAndWill/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/willjones655/Documents/Portfolio/Unity/Experimental/JoshAndWill/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/willjones655/Documents/Portfolio/Unity/Experimental/JoshAndWill/obj/Debug/Assembly-CSharp.dll
+/Users/willjones655/Documents/Portfolio/Unity/Experimental/JoshAndWill/obj/Debug/Assembly-CSharp.dll.mdb

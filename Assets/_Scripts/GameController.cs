@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		build = gameObject.GetComponent<BuildCourse>();
-		build.MakeCourse();
+		build.GenerateCourse();
 		canvas.SetActive(true);
 		winTextMesh.text = "";
 	}
@@ -28,7 +28,7 @@ public class GameController : MonoBehaviour {
 
 		if (Input.GetMouseButtonDown(0)){
 			build.DestroyCourse();
-			build.MakeCourse();
+			build.GenerateCourse();
 		}
 	}
 

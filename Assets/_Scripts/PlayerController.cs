@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour {
 
 	//	Hit
 	private int hitPower;
-	public static int maxPower = 2000;
+	public static int maxPower = 5000;
 	private float angle = 0f;
 	private float angleDel = 5f;
 
@@ -38,12 +38,11 @@ public class PlayerController : MonoBehaviour {
 		{
 
 			if (Input.GetKey(KeyCode.W)){
-				hitPower += 10;
+				hitPower += (maxPower/200);
 				powerBar.SetAmount(hitPower,maxPower);
 				if(hitPower > maxPower) {
 					hitPower = maxPower;
 				}
-				Debug.Log(hitPower);
 			}
 
 			//	If the ball is moving

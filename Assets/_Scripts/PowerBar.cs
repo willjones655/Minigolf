@@ -21,7 +21,6 @@ public class PowerBar : MonoBehaviour {
 
 	public void SetAmount (int power, int max){
 		rt.sizeDelta= new Vector2(((float)power/(float)max) * width, 24);
-		Debug.Log("Power / Max = " + power/max + " Power " + power + " Max " + max);
-		Debug.Log("width: " + rt.rect.width);
+//		Debug.Log("Power / Max = " + power/max + " Power " + power + " Max " + max);
 	}
 }

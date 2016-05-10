@@ -1,12 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Scripts/GameController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_Scripts/PowerBar.cs">
     <Files>
-      <File FileName="Assets/_Scripts/GameController.cs" Line="16" Column="21" />
-      <File FileName="Assets/_Scripts/PlayerController.cs" Line="1" Column="1" />
-      <File FileName="Assets/_Scripts/BallController.cs" Line="1" Column="1" />
-      <File FileName="../../Pirate/PirateGame/Assets/Scripts/HomeWorld/PlayerController.cs" Line="1" Column="1" />
-      <File FileName="Assets/_Scripts/PowerBar.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Scripts/Test.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Scripts/BuildCourse.cs" Line="73" Column="28" />
+      <File FileName="Assets/_Scripts/ProbabilityCurve.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Scripts/GameController.cs" Line="1" Column="1" />
+      <File FileName="Assets/_Scripts/PlayerController.cs" Line="46" Column="1" />
+      <File FileName="Assets/_Scripts/PowerBar.cs" Line="24" Column="39" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
