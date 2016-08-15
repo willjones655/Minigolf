@@ -84,13 +84,11 @@ public class PlayerController : MonoBehaviour {
 		//	Value between current .a and newColor Value
 
 		foreach(Material mat in mats){
-//			Color newColor = mat.color;
-//			newColor.a = newColorValue;
-//			mat.SetColor("_Color", newColor);
 
 			Color newColor = mat.color;
 			newColor.a = newColorValue;
 			mat.SetColor("_Color", newColor);
+			Debug.Log(mat.name + " " + mat.color.a);
 		}
 	}
 
